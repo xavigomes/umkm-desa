@@ -1,0 +1,95 @@
+/* Untuk menyembunyikan default scrollbar di beberapa browser (dari sebelumnya) */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* ------ Swiper Custom Styles ------ */
+
+/* Pastikan swiper container memiliki position: relative agar tombol absolut bisa bekerja */
+.swiper {
+    position: relative;
+    /* Tambahkan padding di sisi kiri/kanan swiper agar ada ruang untuk tombol */
+    /* Sesuaikan nilai padding ini agar panah terlihat di luar */
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box; /* Penting agar padding tidak menambah lebar total */
+    /* Tambahkan padding-bottom agar pagination dots punya ruang di bawah */
+    padding-bottom: 40px; /* Memberi ruang untuk pagination dots */
+}
+
+/* Menyesuaikan posisi pagination dots */
+.swiper-pagination {
+    /* Pastikan bottom diatur relatif terhadap container swiper */
+    bottom: 0px !important; /* Posisikan 5px dari bawah swiper container */
+    /* Menggunakan !important untuk memastikan style ini menimpa style default Swiper */
+    width: 100% !important; /* Pastikan pagination mengambil lebar penuh swiper */
+    left: 0 !important; /* Pastikan mulai dari kiri */
+    transform: none !important; /* Hapus transform default Swiper jika ada */
+    z-index: 10; /* Pastikan dots di atas elemen lain */
+}
+
+/* Menyesuaikan warna dots */
+.swiper-pagination-bullet {
+    background-color: #cbd5e0; /* Warna abu-abu terang untuk dots yang tidak aktif */
+    opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #3b82f6; /* Warna biru untuk dot aktif */
+    opacity: 1;
+}
+
+/* Mengatur posisi tombol navigasi panah */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #4a5568 !important; /* Warna panah */
+    top: 50% !important; /* Posisikan vertikal di tengah */
+    transform: translateY(
+        -50%
+    ) !important; /* Sesuaikan untuk penempatan tengah yang tepat */
+    width: auto !important; /* Biarkan lebar mengikuti konten */
+    height: auto !important; /* Biarkan tinggi mengikuti konten */
+    margin-top: 0 !important; /* Hapus margin default jika ada */
+    z-index: 10; /* Pastikan panah di atas elemen lain */
+}
+
+.swiper-button-prev {
+    left: 0px !important; /* Posisikan di tepi kiri padding swiper */
+}
+
+.swiper-button-next {
+    right: 0px !important; /* Posisikan di tepi kanan padding swiper */
+}
+
+/* Menyesuaikan ukuran panah */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 2.5rem !important; /* Memperbesar ukuran ikon panah */
+}
+
+/* Menyembunyikan panah di layar kecil */
+@media (max-width: 767px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important;
+    }
+}
